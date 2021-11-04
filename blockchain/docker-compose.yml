@@ -1,0 +1,17 @@
+###############################
+# docker-compose.yml
+###############################
+version: '3.9'
+
+services:
+  # Remote server as a local blockhain node 
+  blockchain:
+    image: blockchain:latest
+    container_name: blockchain
+    build:
+      context: .
+      dockerfile: ./Dockerfile 
+    ports:
+      - "8545"
+    tty: true
+    stdin_open: true

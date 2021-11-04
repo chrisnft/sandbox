@@ -1,0 +1,20 @@
+###############################
+# Sandbox dev environment
+# Warning: This is experimental.
+###############################
+version: '3.9'
+
+services:
+  # Sandbox dev environment 
+  ide:
+    image: ide
+    container_name: ide
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        # Set YOUR USER_ID AND GROUP_ID
+        - USER_ID=1000
+        - GROUP_ID=1000
+    stdin_open: true
+    tty: true
